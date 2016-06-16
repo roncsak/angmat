@@ -17,7 +17,9 @@
   </md-toolbar>
 
   <div class="app-content">
-    ...
+    <md-list>
+      <md-list-item *ngFor="let motor of motors">{{motor.manufacturer}} {{motor.modell}}</md-list-item>
+    </md-list>
   </div>
 
 </md-sidenav-layout>

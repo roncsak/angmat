@@ -1,4 +1,4 @@
-import { Component }                              from '@angular/core';
+import { Component, OnInit }                      from '@angular/core';
 import { MD_CARD_DIRECTIVES }                     from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES }                   from '@angular2-material/button';
 import { MD_TOOLBAR_DIRECTIVES }                  from '@angular2-material/toolbar';
@@ -12,12 +12,15 @@ import { MD_INPUT_DIRECTIVES }                    from '@angular2-material/input
 import { MD_LIST_DIRECTIVES }                     from '@angular2-material/list';
 import { MD_TABS_DIRECTIVES }                     from '@angular2-material/tabs';
 
+import { Motor } from './motor';
+import { MotorService } from './motor.service';
+
 @Component({
   moduleId: module.id,
   selector: 'angmat-app',
   templateUrl: 'angmat.component.html',
   styleUrls: ['angmat.component.css'],
-  providers: [MdRadioDispatcher, MdIconRegistry],
+  providers: [MotorService, MdRadioDispatcher, MdIconRegistry],
   directives: [
     MD_SIDENAV_DIRECTIVES,
     MD_CARD_DIRECTIVES,
@@ -33,6 +36,15 @@ import { MD_TABS_DIRECTIVES }                     from '@angular2-material/tabs'
     MD_TABS_DIRECTIVES
   ]
 })
-export class AngmatAppComponent {
+export class AngmatAppComponent implements OnInit {
   title = 'angmat works!';
+  motors: Motor[];
+
+  constructor( private motorService: MotorService) { }
+  getMotors() {
+    this.motorService.getMotors().then(motors => this.motors = motors);
+  }
+  ngOnInit() {
+    this.getMotors();
+  }
 }
