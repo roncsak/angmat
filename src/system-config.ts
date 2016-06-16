@@ -14,6 +14,16 @@ const materialPkgs:string[] = [
   'core',
   'button',
   'card',
+  'grid-list',
+  'icon',
+  'input',
+  'list',
+  'progress-bar',
+  'progress-circle',
+  'radio',
+  'sidenav',
+  'slide-toggle',
+  'tabs',
   'toolbar'
 ];
 materialPkgs.forEach((pkg) => {
@@ -39,7 +49,7 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared',
+  'app/shared'
   /** @cli-barrel */
 ];
 
