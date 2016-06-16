@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Angmat</title>
+  <title>{{title}}</title>
   <base href="/">
 
   {{#unless environment.production}}
@@ -12,10 +12,8 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body style="margin:0px;">
   <angmat-app>Loading...</angmat-app>
-
-
 
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
     <script>
@@ -23,10 +21,6 @@
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-
-
-
-
 
 </body>
 </html>
