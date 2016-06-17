@@ -1,4 +1,6 @@
 import { Component, OnInit }                      from '@angular/core';
+import { Router }                                 from '@angular/router';
+
 import { MD_CARD_DIRECTIVES }                     from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES }                   from '@angular2-material/button';
 import { MD_TOOLBAR_DIRECTIVES }                  from '@angular2-material/toolbar';
@@ -14,6 +16,7 @@ import { MD_TABS_DIRECTIVES }                     from '@angular2-material/tabs'
 
 import { Motor } from './motor';
 import { MotorService } from './motor.service';
+import { MotorsByManufComponent } from './motors-by-manuf/motors-by-manuf.component';
 
 @Component({
   moduleId: module.id,
@@ -36,15 +39,26 @@ import { MotorService } from './motor.service';
     MD_TABS_DIRECTIVES
   ]
 })
+
 export class AngmatAppComponent implements OnInit {
   title = 'angmat works!';
   motors: Motor[];
 
-  constructor( private motorService: MotorService) { }
+  constructor(
+    private motorService: MotorService,
+    private router: Router
+  ) { }
+
+  // constructor( router:Router )
+
   getMotors() {
     this.motorService.getMotors().then(motors => this.motors = motors);
   }
   ngOnInit() {
     this.getMotors();
+  }
+
+  onSelect(motor: Motor) {
+    this.router.navigate(['/motors', motor.modell]);
   }
 }

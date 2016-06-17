@@ -2,7 +2,6 @@
   <md-sidenav #sidenav mode="over" class="app-sidenav">
     Sidenav
   </md-sidenav>
-
   <md-toolbar color="primary">
     <button class="app-icon-button" (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
@@ -16,10 +15,13 @@
      </span>
   </md-toolbar>
 
-  <div class="app-content">
-    <md-list>
-      <md-list-item *ngFor="let motor of motors">{{motor.manufacturer}} {{motor.modell}}</md-list-item>
-    </md-list>
-  </div>
-
+  <router-outlet>
+    <div class="app-content">
+      <md-list>
+        <md-list-item *ngFor="let motor of motors">
+          <span (click)="onSelect(motor)">{{motor.modell}}</span>
+        </md-list-item>
+      </md-list>
+    </div>
+  </router-outlet>
 </md-sidenav-layout>

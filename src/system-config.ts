@@ -50,7 +50,9 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared'
+  'app/shared',
+  'app/motors-by-manuf-component',
+  'app/motors-by-manuf',
   /** @cli-barrel */
 ];
 
