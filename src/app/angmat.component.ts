@@ -1,5 +1,5 @@
 import { Component, OnInit }                      from '@angular/core';
-import { Router }                                 from '@angular/router';
+import { ROUTER_DIRECTIVES }                      from '@angular/router';
 
 import { MD_CARD_DIRECTIVES }                     from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES }                   from '@angular2-material/button';
@@ -25,6 +25,7 @@ import { MotorsByManufComponent } from './motors-by-manuf/motors-by-manuf.compon
   styleUrls: ['angmat.component.css'],
   providers: [MotorService, MdRadioDispatcher, MdIconRegistry],
   directives: [
+    ROUTER_DIRECTIVES,
     MD_SIDENAV_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     MD_TOOLBAR_DIRECTIVES,
@@ -45,8 +46,8 @@ export class AngmatAppComponent implements OnInit {
   motors: Motor[];
 
   constructor(
-    private motorService: MotorService,
-    private router: Router
+    private motorService: MotorService
+    // private router: Router
   ) { }
 
   // constructor( router:Router )
@@ -58,7 +59,7 @@ export class AngmatAppComponent implements OnInit {
     this.getMotors();
   }
 
-  onSelect(motor: Motor) {
-    this.router.navigate(['/motors', motor.modell]);
-  }
+  // onSelect(motor: Motor) {
+  //   this.router.navigate(['/motors', motor.modell]);
+  // }
 }

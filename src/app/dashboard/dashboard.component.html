@@ -1,0 +1,6 @@
+<p>Motors:</p>
+<md-list>
+  <md-list-item *ngFor="let motor of motors">
+    <span (click)="onSelect(motor)">{{motor.manufacturer}} {{motor.modell}}</span>
+  </md-list-item>
+</md-list>

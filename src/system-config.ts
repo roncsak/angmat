@@ -53,6 +53,7 @@ const barrels: string[] = [
   'app/shared',
   'app/motors-by-manuf-component',
   'app/motors-by-manuf',
+  'app/dashboard',
   /** @cli-barrel */
 ];
 
