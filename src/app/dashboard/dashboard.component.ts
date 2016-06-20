@@ -1,5 +1,6 @@
 import { Component, OnInit }                      from '@angular/core';
-import { Router }                      from '@angular/router';
+// import { Router }                      from '@angular/router';
+import { ROUTER_DIRECTIVES }                      from '@angular/router';
 import { MD_LIST_DIRECTIVES }                     from '@angular2-material/list';
 
 import { Motor }        from '../motor';
@@ -10,15 +11,15 @@ import { MotorService } from '../motor.service';
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [MD_LIST_DIRECTIVES],
+  directives: [MD_LIST_DIRECTIVES, ROUTER_DIRECTIVES],
   providers: [MotorService]
 })
 export class DashboardComponent implements OnInit {
   motors: Motor[];
 
   constructor(
-      private motorService: MotorService
-    , private router: Router
+    private motorService: MotorService
+    // private router: Router
   ) { }
 
   getMotors() {
@@ -29,7 +30,7 @@ export class DashboardComponent implements OnInit {
     this.getMotors();
   }
 
-  onSelect(motor: Motor) {
-    // this.router.navigate(['/', motor.modell]);
-  }
+  // onSelect(motor: Motor) {
+  //   this.router.navigate(['/', motor.modell]);
+  // }
 }

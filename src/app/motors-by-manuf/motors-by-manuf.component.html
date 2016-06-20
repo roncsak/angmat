@@ -1,3 +1,6 @@
-<p>
-  motors-by-manuf works!
-</p>
+<p>Motors:</p>
+<md-list>
+  <md-list-item *ngFor="let motor of motors">
+    <span>{{motor.manufacturer}} {{motor.modell}}</span>
+  </md-list-item>
+</md-list>
