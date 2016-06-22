@@ -1,12 +1,21 @@
 import { provideRouter, RouterConfig } from '@angular/router';
+
+import { AuthGuard }  from './auth.guard';
+
+import { AdminComponent }         from './admin/admin.component';
 import { DashboardComponent }     from './dashboard/dashboard.component';
 import { MotorsByManufComponent } from './motors-by-manuf/motors-by-manuf.component';
+import { LoginRoutes,
+         AUTH_PROVIDERS }         from './login/login.routes';
 
 export const routes: RouterConfig = [
-  { path: '',     component: DashboardComponent  },
-  { path: ':id',  component: MotorsByManufComponent }
+  ...LoginRoutes,
+  { path: '',       component: DashboardComponent },
+  { path: 'admin',  component: AdminComponent, canActivate: [AuthGuard] },
+  { path: ':id',    component: MotorsByManufComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
+  provideRouter(routes),
+  AUTH_PROVIDERS
 ];
