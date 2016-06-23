@@ -1,6 +1,6 @@
 import { AuthGuard }          from '../auth.guard';
 import { AuthService }        from '../auth.service';
-import { LoginComponent }     from '../login/login.component';
+import { LoginComponent }     from './login.component';
 
 export const LoginRoutes = [
   { path: 'login', component: LoginComponent }
